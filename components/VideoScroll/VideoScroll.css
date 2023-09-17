@@ -1,0 +1,15 @@
+.scroll-container {
+    inset: 0;
+    overflow-x: scroll;
+    position: absolute;
+    z-index: 10;
+}
+
+.scroll-content {
+    height: 100%;
+}
+
+.video-scroll-container {
+    border-radius: 8px;
+    position: relative;
+}
