@@ -23,7 +23,7 @@ const VideoScroll = (props: VideoScrollProps) => {
 
                 video.currentTime = targetTime;
             });
-        }, 250);
+        }, 50);
 
         scrollContainer.addEventListener("scroll", handleScroll);
 
@@ -66,7 +66,7 @@ const VideoScroll = (props: VideoScrollProps) => {
                     }}
                 ></div>
             </div>
-            <video ref={videoRef} width="100%" height="auto" preload="preload" playsInline>
+            <video ref={videoRef} width="100%" height="auto" preload="auto" playsInline>
                 <source src={video} type="video/mp4" />
             </video>
         </div>
