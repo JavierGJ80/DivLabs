@@ -1,4 +1,5 @@
 import "./VideoScroll.css";
+import { throttle } from "lodash";
 import React, { useRef, useEffect } from "react";
 import { VideoScrollProps } from "./VideoScroll.types";
 
@@ -13,14 +14,14 @@ const VideoScroll = (props: VideoScrollProps) => {
 
         if (!scrollContainer || !video) return;
 
-        const handleScroll = () => {
+        const handleScroll = throttle(() => {
             const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
             const scrollFraction = scrollContainer.scrollLeft / maxScroll;
             const videoDuration = video.duration;
             const targetTime = scrollFraction * videoDuration;
 
             video.currentTime = targetTime;
-        };
+        }, 100);
 
         scrollContainer.addEventListener("scroll", handleScroll);
 
@@ -48,36 +49,26 @@ const VideoScroll = (props: VideoScrollProps) => {
         };
     }, []);
 
-    try{
-        return (
-            <div
-                className="video-scroll-container"
-                style={{
-                    width: width,
-                }}
-            >
-                <div ref={scrollContainerRef} className="scroll-container">
-                    <div
-                        className="scroll-content"
-                        style={{
-                            minWidth: `${Math.round((lengthScroll || 2) * 100)}%`,
-                        }}
-                    ></div>
-                </div>
-                <video ref={videoRef} width="100%" height="auto">
-                    <source src={video} type="video/mp4" />
-                </video>
+    return (
+        <div
+            className="video-scroll-container"
+            style={{
+                width: width,
+            }}
+        >
+            <div ref={scrollContainerRef} className="scroll-container">
+                <div
+                    className="scroll-content"
+                    style={{
+                        minWidth: `${Math.round((lengthScroll || 2) * 100)}%`,
+                    }}
+                ></div>
             </div>
-        );
-    }
-    catch(e){
-        console.log(`Error with component: ${e}`)
-        return(
-            <div>
-                An error occurred while loading the video.
-            </div>
-        )
-    }
+            <video ref={videoRef} width="100%" height="auto" preload="preload" playsInline>
+                <source src={video} type="video/mp4" />
+            </video>
+        </div>
+    );
 };
 
 export default VideoScroll;
