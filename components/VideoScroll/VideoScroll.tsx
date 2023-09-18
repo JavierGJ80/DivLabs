@@ -15,13 +15,15 @@ const VideoScroll = (props: VideoScrollProps) => {
         if (!scrollContainer || !video) return;
 
         const handleScroll = throttle(() => {
-            const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
-            const scrollFraction = scrollContainer.scrollLeft / maxScroll;
-            const videoDuration = video.duration;
-            const targetTime = scrollFraction * videoDuration;
+            window.requestAnimationFrame(() => {
+                const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+                const scrollFraction = scrollContainer.scrollLeft / maxScroll;
+                const videoDuration = video.duration;
+                const targetTime = scrollFraction * videoDuration;
 
-            video.currentTime = targetTime;
-        }, 100);
+                video.currentTime = targetTime;
+            });
+        }, 250);
 
         scrollContainer.addEventListener("scroll", handleScroll);
 
