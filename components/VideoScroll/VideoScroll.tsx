@@ -11,8 +11,6 @@ const VideoScroll = (props: VideoScrollProps) => {
     const [startScrollLeft, setStartScrollLeft] = useState(0);
     const [scrolling, setScrolling] = useState(false);
 
-    console.log('V1.0')
-
     const handleScroll = throttle(() => {
         window.requestAnimationFrame(() => {
             const video = videoRef.current;
@@ -24,6 +22,8 @@ const VideoScroll = (props: VideoScrollProps) => {
             const scrollFraction = scrollContainer.scrollLeft / maxScroll;
             const videoDuration = video.duration;
             const targetTime = scrollFraction * videoDuration;
+
+            if (Number.isNaN(targetTime)) return;
 
             video.currentTime = targetTime;
         });
