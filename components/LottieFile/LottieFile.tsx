@@ -13,8 +13,9 @@ const LottieFile = (props: LottieFileProps) => {
     };
 
     useEffect(()=>{
-        import(`./lotties/${fileName}.json`)
-            .then(module => {setAnimation(module.default);} )
+        fetch(`https://raw.githubusercontent.com/JavierGJ80/DivLabs/main/components/LottieFile/lotties/${fileName}.json`)
+            .then(response => {return response.json();} )
+            .then(jsonData => {setAnimation(jsonData);})
             .catch(error => {console.error('Error while loading lottie:', error);})
     }, [fileName])
 
