@@ -13,7 +13,7 @@ const LottieFile = (props: LottieFileProps) => {
 
     return(
         <div id="LottieContainer">
-            <Lottie options={options} height={height} width={width}/>
+            <Lottie options={options} height={height} width={width} isClickToPauseDisabled={true} style={{ cursor:"default" }}/>
         </div>
     );
 }
