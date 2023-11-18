@@ -42,23 +42,15 @@ const IaDemyForm = (props: IaDemyFormProps) => {
     const handleSubmit = (event: FormEvent) => {
         event.preventDefault();
 
-        emailjs.send(serviceId, templateId, formValues as unknown as Record<string, unknown>, userId)
+        if (formValues.captcha) {
+            emailjs.send(serviceId, templateId, formValues as unknown as Record<string, unknown>, userId)
             .then((result) => {
                 console.log(result.text);
                 setIsModalOpen(true);
             }, (error) => {
                 console.error(error.text);
             });
-
-        // if (formValues.captcha) {
-        //     emailjs.send(serviceId, templateId, formValues as unknown as Record<string, unknown>, userId)
-        //     .then((result) => {
-        //         console.log(result.text);
-        //         setIsModalOpen(true);
-        //     }, (error) => {
-        //         console.error(error.text);
-        //     });
-        // }
+        }
     };
 
     const closeModal = () => {
@@ -88,7 +80,7 @@ const IaDemyForm = (props: IaDemyFormProps) => {
         <form onSubmit={handleSubmit} id="IaDemyForm">
             <div id="formContainer">
                 <input type="email" name="email" placeholder="E-mail" onChange={handleInputChange} className="emailInput" required />
-                <input type="submit" value="Send" className="sendButton"/>
+                <input type="submit" value="Send" className={isCaptchaCompleted && isFormFilled ? "sendButton" : "incompleteSendButton"}/>
             </div>
             <ReCAPTCHA theme="dark" sitekey={recaptchaSiteKey} onChange={handleCaptchaChange} style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }} />
             <Modal

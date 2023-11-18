@@ -31,6 +31,19 @@
     cursor: pointer;
 }
 
+.incompleteSendButton{
+    background: #4d4d4d;
+    border-radius: 0 6px 6px 0;
+    font-family: "Helvetica";
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 700;
+    height: 51px;
+    width: 132px;
+    border-width: 0;
+    cursor: pointer;
+}
+
 .sendButton:hover{
     background: #8b60df;
 }
@@ -64,6 +77,11 @@
     }
 
     .sendButton{
+        width: 100%;
+        border-radius: 6px;
+    }
+
+    .incompleteSendButton{
         width: 100%;
         border-radius: 6px;
     }
