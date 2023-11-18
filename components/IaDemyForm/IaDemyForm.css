@@ -1,0 +1,70 @@
+#IaDemyForm{
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#formContainer{
+    display: flex;
+    width: 100%;
+}
+
+.emailInput{
+    width: 238px;
+    height: 51px;
+    border-width: 0px;
+    padding: 0 0 0 20px;
+    font-family: "Helvetica";
+    border-radius: 6px 0 0 6px;
+}
+.sendButton{
+    background: #6f3fce;
+    border-radius: 0 6px 6px 0;
+    font-family: "Helvetica";
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 700;
+    height: 51px;
+    width: 132px;
+    border-width: 0;
+    cursor: pointer;
+}
+
+.sendButton:hover{
+    background: #8b60df;
+}
+
+.headerTextModal {
+    font-family: "Helvetica";
+}
+
+.pTextModal{
+    font-family: "Helvetica";
+}
+
+@media (max-width: 768px) {
+    #IaDemyForm {
+        width: 100%;
+    }
+
+    .sendButton:hover {
+        background: #6f3fce;
+    }
+
+    #formContainer {
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .emailInput{
+        width: auto;
+        border-radius: 6px;
+    }
+
+    .sendButton{
+        width: 100%;
+        border-radius: 6px;
+    }
+}
