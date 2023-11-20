@@ -60,6 +60,7 @@ const IaDemyForm = (props: IaDemyFormProps) => {
     const modalStyle = {
         overlay: {
             backgroundColor: "rgb(20 20 20 / 81%)",
+            zIndex: 99
         },
         content: {
             background: "#41464F",
@@ -73,6 +74,7 @@ const IaDemyForm = (props: IaDemyFormProps) => {
             borderRadius: `10px`,
             border: `1px solid #30363D`,
             color: 'white',
+            zIndex: 99
         },
     };
 
