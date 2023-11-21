@@ -82,7 +82,7 @@ const IaDemyForm = (props: IaDemyFormProps) => {
         <form onSubmit={handleSubmit} id="IaDemyForm">
             <div id="formContainer">
                 <input type="email" name="email" placeholder="E-mail" onChange={handleInputChange} className="emailInput" required />
-                <input type="submit" value="Send" className={isCaptchaCompleted && isFormFilled ? "sendButton" : "incompleteSendButton"}/>
+                <input type="submit" value="Suscribirme" className={isCaptchaCompleted && isFormFilled ? "sendButton" : "incompleteSendButton"}/>
             </div>
             <ReCAPTCHA theme="dark" sitekey={recaptchaSiteKey} onChange={handleCaptchaChange} style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }} />
             <Modal
@@ -92,8 +92,8 @@ const IaDemyForm = (props: IaDemyFormProps) => {
                 ariaHideApp={false}
                 style={modalStyle as Modal.Styles}
             >
-                <h2 className="headerTextModal">Sent with Success</h2>
-                <p className="pTextModal">Your subscription has been successfully submitted.</p>
+                <h2 className="headerTextModal">Enviado con éxito</h2>
+                <p className="pTextModal">Tu suscripción se ha registrado con éxito</p>
                 <button
                 onClick={closeModal}
                 style={{
@@ -107,7 +107,7 @@ const IaDemyForm = (props: IaDemyFormProps) => {
                     fontFamily: "Helvetica"
                 }}
                 >
-                Close
+                Cerrar
                 </button>
             </Modal>
         </form>
