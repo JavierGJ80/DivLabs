@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios'
 import Lottie from "react-lottie";
-import animation from "./lotties/lottie final.json"
+import animation from "./lotties/brujula.json"
 import { LottieFileProps } from "./LottieFile.Types";
 
 const LottieFile = (props: LottieFileProps) => {
