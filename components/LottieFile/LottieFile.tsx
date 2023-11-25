@@ -8,7 +8,7 @@ const LottieFile = (props: LottieFileProps) => {
     const options = {
         loop: true,
         autoplay: true,
-        animationData: animation
+        animationData: fileName || animation
     };
 
     return(
