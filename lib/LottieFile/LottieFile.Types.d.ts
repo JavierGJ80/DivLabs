@@ -1,5 +1,5 @@
 export interface LottieFileProps {
-    fileName: string;
+    fileName?: string;
     width?: string | number;
     height?: string | number;
 }
