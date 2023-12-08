@@ -22,12 +22,9 @@ const IaDemyForm = (props: IaDemyFormProps) => {
     });
 
     const handleExpired = () => {
-        setTimeout(() => {
-            if (recaptchaRef.current) {
-                recaptchaRef.current.reset();
-                console.log('resetting')
-            }
-        }, 1000);
+        if (recaptchaRef.current) {
+            recaptchaRef.current.reset();
+        }
     };
 
     const handleInputChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
