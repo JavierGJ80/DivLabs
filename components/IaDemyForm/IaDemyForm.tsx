@@ -1,6 +1,6 @@
 import "./IaDemyForm.css";
 import emailjs from 'emailjs-com';
-import React, { FormEvent, useState, ChangeEvent, useRef } from "react";
+import React, { FormEvent, useState, ChangeEvent, createRef } from "react";
 import { IaDemyFormProps, FormValues } from "./IaDemyForm.types";
 import ReCAPTCHA from "react-google-recaptcha";
 import Modal from 'react-modal';
@@ -15,7 +15,7 @@ const IaDemyForm = (props: IaDemyFormProps) => {
     const [isFormFilled, setIsFormFilled] = useState<boolean>(false);
     const [isCaptchaCompleted, setIsCaptchaCompleted] = useState<boolean>(false);
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-    const recaptchaRef = useRef<ReCAPTCHA>(null);
+    const recaptchaRef = createRef<ReCAPTCHA>();
     const [formValues, setFormValues] = useState<FormValues>({
         email: '',
         captcha: null,
@@ -94,7 +94,7 @@ const IaDemyForm = (props: IaDemyFormProps) => {
                 <input type="email" name="email" placeholder="E-mail" onChange={handleInputChange} className="emailInput" required />
                 <input type="submit" value="Suscríbete" className={"sendButton"}/>
             </div>
-            <ReCAPTCHA theme="dark" sitekey={recaptchaSiteKey} onChange={handleCaptchaChange} onExpired={handleExpired} style={{ display: 'flex', justifyContent: 'center', marginTop: '10px'}} />
+            <ReCAPTCHA theme="dark" sitekey={recaptchaSiteKey} ref={recaptchaRef} onChange={handleCaptchaChange} onExpired={handleExpired} style={{ display: 'flex', justifyContent: 'center', marginTop: '10px'}} />
             <Modal
                 isOpen={isModalOpen}
                 onRequestClose={closeModal}
