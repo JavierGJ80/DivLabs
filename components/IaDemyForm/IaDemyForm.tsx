@@ -23,7 +23,8 @@ const IaDemyForm = (props: IaDemyFormProps) => {
 
     const onExpired = () => {
         // @ts-ignore
-        recaptchaRef.current.reset();
+        // recaptchaRef.current.reset();
+        const rec = 0;
     }
 
     const handleInputChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
