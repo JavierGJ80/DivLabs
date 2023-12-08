@@ -25,6 +25,7 @@ const IaDemyForm = (props: IaDemyFormProps) => {
         setTimeout(() => {
             if (recaptchaRef.current) {
                 recaptchaRef.current.reset();
+                console.log('resetting')
             }
         }, 1000);
     };
