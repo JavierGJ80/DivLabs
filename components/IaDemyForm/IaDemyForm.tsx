@@ -3,7 +3,7 @@ import emailjs from 'emailjs-com';
 import React, { FormEvent, useState, ChangeEvent, createRef } from "react";
 import { IaDemyFormProps, FormValues } from "./IaDemyForm.types";
 import ReCAPTCHA from "react-google-recaptcha";
-import Modal from 'react-modal';
+import { CSSTransition } from "react-transition-group";
 
 const checkFormFilled = (email: string): boolean => {
     const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -92,33 +92,16 @@ const IaDemyForm = (props: IaDemyFormProps) => {
             <div id="formContainer">
                 <input type="email" name="email" placeholder="E-mail" onChange={handleInputChange} className="emailInput" required />
                 <input type="submit" value="Suscríbete" className={"sendButton"}/>
+                <CSSTransition
+                    in={isModalOpen}
+                    timeout={500}
+                    classNames="vanish"
+                    unmountOnExit
+                >
+                    <span id="formSucceededMessage">Ahora estás suscrito</span>
+                </CSSTransition>
             </div>
             <ReCAPTCHA theme="dark" sitekey={recaptchaSiteKey} ref={recaptchaRef} onChange={handleCaptchaChange} onExpired={handleExpired} style={{ display: 'flex', justifyContent: 'center', marginTop: '10px'}} />
-            <Modal
-                isOpen={isModalOpen}
-                onRequestClose={closeModal}
-                contentLabel="Form Submitted"
-                ariaHideApp={false}
-                style={modalStyle as Modal.Styles}
-            >
-                <h2 className="headerTextModal">Enviado con éxito</h2>
-                <p className="pTextModal">Tu suscripción se ha registrado con éxito</p>
-                <button
-                onClick={closeModal}
-                style={{
-                    padding: '8px 16px',
-                    backgroundColor: '#6f3fce',
-                    color: 'white',
-                    border: 'none',
-                    borderRadius: `6px`,
-                    cursor: 'pointer',
-                    marginTop: '10px',
-                    fontFamily: "Helvetica"
-                }}
-                >
-                Cerrar
-                </button>
-            </Modal>
         </form>
     );
 };
