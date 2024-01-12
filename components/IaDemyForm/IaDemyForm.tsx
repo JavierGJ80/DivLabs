@@ -101,6 +101,7 @@ const IaDemyForm = (props: IaDemyFormProps) => {
                     <span id="formSucceededMessage">Ahora estás suscrito</span>
                 </CSSTransition>
             </div>
+            <span>¿Te gustaría recibir noticias, recursos y actualizaciones?</span>
             <ReCAPTCHA theme="dark" sitekey={recaptchaSiteKey} ref={recaptchaRef} onChange={handleCaptchaChange} onExpired={handleExpired} style={{ display: 'flex', justifyContent: 'center', marginTop: '10px'}} />
         </form>
     );

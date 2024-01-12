@@ -5,6 +5,14 @@
     align-items: flex-start;
 }
 
+#IaDemyForm span{
+    font-family: "Yantramanav";
+    font-size: 15px;
+    font-weight: 400;
+    color: white;
+    padding-top: 10px;
+}
+
 #formContainer{
     display: flex;
     width: 100%;
