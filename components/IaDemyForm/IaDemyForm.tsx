@@ -1,6 +1,6 @@
 import "./IaDemyForm.css";
 import emailjs from 'emailjs-com';
-import React, { FormEvent, useState, ChangeEvent, createRef } from "react";
+import React, { FormEvent, useState, ChangeEvent, createRef, InvalidEvent } from "react";
 import { IaDemyFormProps, FormValues } from "./IaDemyForm.types";
 import ReCAPTCHA from "react-google-recaptcha";
 import { CSSTransition } from "react-transition-group";
@@ -56,14 +56,21 @@ const IaDemyForm = (props: IaDemyFormProps) => {
             .then((result) => {
                 console.log(result.text);
                 setIsModalOpen(true);
+                setTimeout(() => {
+                    setIsModalOpen(false);
+                },1000)
             }, (error) => {
                 console.error(error.text);
             });
         }
     };
 
-    const closeModal = () => {
-        setIsModalOpen(false);
+    const closeModal = (e: FormEvent) => {
+        e.preventDefault();
+        setIsModalOpen(true);
+        setTimeout(() => {
+            setIsModalOpen(false);
+        },1000)
     };
 
     const modalStyle = {
@@ -101,7 +108,7 @@ const IaDemyForm = (props: IaDemyFormProps) => {
                     <span id="formSucceededMessage">Ahora estás suscrito</span>
                 </CSSTransition>
             </div>
-            <span>¿Te gustaría recibir noticias, recursos y actualizaciones?</span>
+            <span id="receiveNotifications">¿Te gustaría recibir noticias, recursos y actualizaciones?</span>
             <ReCAPTCHA theme="dark" sitekey={recaptchaSiteKey} ref={recaptchaRef} onChange={handleCaptchaChange} onExpired={handleExpired} style={{ display: 'flex', justifyContent: 'center', marginTop: '10px'}} />
         </form>
     );

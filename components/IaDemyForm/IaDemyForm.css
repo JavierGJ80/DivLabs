@@ -5,7 +5,7 @@
     align-items: flex-start;
 }
 
-#IaDemyForm span{
+#receiveNotifications{
     font-family: "Yantramanav";
     font-size: 15px;
     font-weight: 400;
@@ -32,6 +32,7 @@
     font-size: 16px;
     font-weight: 600;
     background-color: white;
+    color: black!important;
     z-index: 10;
     border-radius: 6px;
 }
