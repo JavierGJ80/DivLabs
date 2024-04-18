@@ -1,0 +1,90 @@
+#auditorioGoldaForm {
+    gap: 20px;
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    flex-direction: column;
+}
+
+.interaction {
+    display: flex;
+    color: #000000;
+    border-radius: 10px;
+    box-sizing: border-box;
+    border: 1px solid #353535;
+    background-color: #f1f1f1;
+}
+
+.interaction::placeholder {
+    color: #353535;
+}
+
+#auditorioGoldaForm > input {
+    height: 40px;
+    padding: 0 0 0 10px;
+}
+
+#auditorioGoldaForm > textarea {
+    resize: none;
+    height: 236px;
+    padding: 10px 0 0 10px;
+}
+
+.sendButton {
+    width: 123px;
+    height: 30px;
+    display: flex;
+    font-size: 17px;
+    color: #ffffff;
+    font-weight: 400;
+    align-self: center;
+    align-items: center;
+    border-radius: 10px;
+    justify-content: center;
+    background-color: #88886f;
+}
+
+.sendButton:hover,
+.sendButton:active {
+    background-color: #636353;
+}
+
+#formSucceededMessage {
+    top: 40%;
+    gap: 15px;
+    left: 50%;
+    width: 345px;
+    height: 270px;
+    display: flex;
+    padding-top: 35px;
+    position: absolute;
+    align-items: center;
+    box-sizing: border-box;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: #88886f;
+    transform: translate(-50%, -50%);
+}
+
+#formSucceededMessage > button {
+    all: unset;
+    cursor: pointer;
+    display: flex;
+    margin-right: 40px;
+    align-self: flex-end;
+}
+
+#formSucceededMessage > h3 {
+    all: unset;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+#formSucceededMessage > p {
+    all: unset;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 400;
+    width: 241px;
+}
